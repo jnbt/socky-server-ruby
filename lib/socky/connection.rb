@@ -59,7 +59,7 @@ module Socky
     # at default then user is assigned to nil channel
     # @return [Array] list of client channels
     def channels                      
-      debug [query["channels"], "registered channels"]
+      debug [query["channels"], " are registered channels"]
       @channels ||= query["channels"].collect(&:strip).reject(&:empty?)           
       @channels[0] ||= nil # Every user should have at last one channel
       @channels
