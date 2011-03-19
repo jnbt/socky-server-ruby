@@ -58,8 +58,9 @@ module Socky
     # every client have at last channel - if no channels are provided
     # at default then user is assigned to nil channel
     # @return [Array] list of client channels
-    def channels
-      @channels ||= query["channels"].to_s.split(",").collect(&:strip).reject(&:empty?)
+    def channels                      
+      debug [query["channels"], "registered channels"]
+      @channels ||= query["channels"].collect(&:strip).reject(&:empty?)           
       @channels[0] ||= nil # Every user should have at last one channel
       @channels
     end
